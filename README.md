@@ -51,3 +51,11 @@ To explore or experiment with the layout architecture locally, clone the workspa
    ```bash
    git clone https://github.com/lumenkanishk/josaa-seat-predictor.git
    cd josaa-seat-predictor
+
+2. **Install core project dependencies:**
+   ```bash
+   npm install
+   
+3. **Fire up the local Vite pipeline server:**
+   ```bash
+   npm run dev
