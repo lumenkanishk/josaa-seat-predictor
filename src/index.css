@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary-500: #849b82; 
+  --color-primary-600: #667c64;
+  --color-primary-900: #2c382b;
+  --color-accent: #c4a77d; 
+}
+
+@layer base {
+  * {
+    font-family: 'JetBrains Mono', monospace !important;
+  }
+  
+  :root {
+    --bg-dark: #030303;
+  }
+
+  body {
+    background-color: var(--bg-dark);
+    color: #f4f4f5;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.noise-bg {
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Glassmorphism utility classes */
+.glass-panel {
+  @apply bg-black/45 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/60 rounded-2xl;
+}
+
+.glass-card-wrapper {
+  @apply relative overflow-hidden rounded-2xl p-[1px] bg-white/10 shadow-2xl shadow-black/60;
+}
+
+.glass-card-inner {
+  @apply relative z-10 w-full h-full bg-black/60 backdrop-blur-xl rounded-2xl;
+}
+
+.glass-input {
+  @apply bg-black/45 border border-white/10 focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-[0_0_15px_rgba(196,167,125,0.2)] outline-none transition-all duration-300 rounded-xl px-4 py-3 text-white placeholder-white/30;
+}
+
+/* Scrollbar styling for a premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+@keyframes movingGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-moving-gradient {
+  background-size: 200% 200%;
+  animation: movingGradient 3s ease infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
